@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="Definitions_2" name="Insurance Risk Assessment" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="risk_assessment" name="Insurance Risk Assessment">
+    <decisionTable id="DecisionTable_2">
+      <input id="input_1" label="Age">
+        <inputExpression id="inputExpression_1" typeRef="number">
+          <text>age</text>
+        </inputExpression>
+      </input>
+      <input id="input_2" label="Medical History">
+        <inputExpression id="inputExpression_2" typeRef="string">
+          <text>medicalHistory</text>
+        </inputExpression>
+      </input>
+      <input id="input_3" label="Occupation Risk">
+        <inputExpression id="inputExpression_3" typeRef="string">
+          <text>occupationRisk</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Risk Level" name="riskLevel" typeRef="string" />
+      <output id="output_2" label="Premium Factor" name="premiumFactor" typeRef="number" />
+      <rule id="rule_1">
+        <inputEntry id="inputEntry_1_1">
+          <text>&lt; 30</text>
+        </inputEntry>
+        <inputEntry id="inputEntry_2_1">
+          <text>"Clean"</text>
+        </inputEntry>
+        <inputEntry id="inputEntry_3_1">
+          <text>"Low"</text>
+        </inputEntry>
+        <outputEntry id="outputEntry_1_1">
+          <text>"Low Risk"</text>
+        </outputEntry>
+        <outputEntry id="outputEntry_2_1">
+          <text>1.0</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_2">
+        <inputEntry id="inputEntry_1_2">
+          <text>[30..50]</text>
+        </inputEntry>
+        <inputEntry id="inputEntry_2_2">
+          <text>"Minor Issues"</text>
+        </inputEntry>
+        <inputEntry id="inputEntry_3_2">
+          <text>"Medium"</text>
+        </inputEntry>
+        <outputEntry id="outputEntry_1_2">
+          <text>"Medium Risk"</text>
+        </outputEntry>
+        <outputEntry id="outputEntry_2_2">
+          <text>1.5</text>
+        </outputEntry>
+      </rule>
+      <rule id="rule_3">
+        <inputEntry id="inputEntry_1_3">
+          <text>&gt; 50</text>
+        </inputEntry>
+        <inputEntry id="inputEntry_2_3">
+          <text>"Major Issues"</text>
+        </inputEntry>
+        <inputEntry id="inputEntry_3_3">
+          <text>"High"</text>
+        </inputEntry>
+        <outputEntry id="outputEntry_1_3">
+          <text>"High Risk"</text>
+        </outputEntry>
+        <outputEntry id="outputEntry_2_3">
+          <text>2.0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
